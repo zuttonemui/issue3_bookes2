@@ -5,6 +5,10 @@ class BooksController < ApplicationController
   def show
   end
 
+  def create
+    @books = Book.new
+  end
+
   def edit
   end
 end

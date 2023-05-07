@@ -11,7 +11,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="d-flex flex-column vh-100">
+  <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
@@ -69,9 +69,11 @@
         </div>
       </nav>
     </header>
-    <main class="mb-auto">
+    <main>
       <p></p>
-      <%= yield %>
+          <%= yield %>
+        </div>
+      </div>
     </main>
     <footer>
       <div class="container mt-5">
