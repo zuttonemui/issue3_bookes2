@@ -1,2 +1,48 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <%= render 'users/sidebar', book: @book, user: @user %>
+    <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+      <table class="table">
+        <tbody>
+        <% if @bookf.user == current_user %>
+          <tr>
+            <td>
+              <%= link_to user_path(@bookf.user_id) do %>
+                <%= image_tag @bookf.user.get_profile_image(100,100) %><br>
+                <%= @bookf.user.name %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to book_path(@bookf.id) do %>
+                <%= @bookf.title %></td>
+              <% end %>
+            <td><%= @bookf.body %></td>
+            <td>
+              <%= link_to "edit", edit_book_path(@bookf.id), class: "btn btn-success btn-sm" %>
+            </td>
+            <td>
+              <%= link_to "destroy", book_path(@bookf.id), method: :delete, class: "btn btn-danger btn-sm" %>
+            </td>
+          </tr>
+        <% else %>
+          <tr>
+            <td>
+              <%= link_to user_path(@bookf.user_id) do %>
+                <%= image_tag @bookf.user.get_profile_image(100,100) %><br>
+                <%= @bookf.user.name %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to book_path(@bookf.id) do %>
+                <%= @bookf.title %></td>
+              <% end %>
+            <td>
+              <%= @bookf.body %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
